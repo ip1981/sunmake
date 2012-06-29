@@ -1,0 +1,110 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2006 Sun Microsystems, Inc. All rights reserved.
+# Use is subject to license terms.
+#
+# @(#)README.usr 1.10 06/12/18
+#
+
+Enclosed in this directory tree is the source code for "make".
+
+Three different "build" options are supported.
+
+1. To build the executable itself:
+
+    Set up your environment variables, and then run "./build".
+
+    For example, in "sh", you could use this command:
+
+	cd usr/src; STUDIOBIN=/your/path/to/Sun/Studio/bin \
+	    DESTDIR=/your/path/to/root/of/install/location \
+	    ./build
+
+    The resulting files, listed below, will be installed under $DESTDIR.
+
+    The default values for these environment variables are:
+
+	STUDIOBIN=/opt/SUNWspro/bin
+	DESTDIR=../../destdir/root_`uname -p`
+
+    If you're happy with the default values, there is no need to specify any.
+
+    Also, the following derived variables can be set individually if so desired.
+    The default values are listed below for reference:
+
+	CC=$(STUDIOBIN)/cc
+	CCC=$(STUDIOBIN)/CC
+	MAKE=$(STUDIOBIN)/dmake -m serial
+
+    Note that only Sun Studio 10 or Sun Studio 11 compilers are supported.
+
+    List of created files:
+
+	$DESTDIR/usr/lib/libmakestate.so.1
+	$DESTDIR/usr/lib/amd64/libmakestate.so.1 OR $DESTDIR/usr/lib/sparcv9/libmakestate.so.1
+	$DESTDIR/usr/lib/svr4.make
+	$DESTDIR/usr/share/lib/make/svr4.make.rules
+	$DESTDIR/usr/share/lib/make/make.rules
+	$DESTDIR/usr/ccs/bin/make
+	$DESTDIR/usr/xpg4/bin/make
+
+2. To build a "binaries only" release image:
+
+    Set up your environment variables, and then run "./build_bin_img".
+
+    For example, in "sh", you could use this command:
+
+	cd usr/src; STUDIOBIN=/your/path/to/Sun/Studio/bin \
+	    DESTDIR=/your/path/to/root/of/install/location \
+	    BINIMGFILE=/your/path/to/binaries-only/imagefile \
+	    ./build_bin_img
+
+    As in (1) above, the make executables are built under the control
+    of a handful of environment variables, and installed at $DESTDIR.
+
+    The files at $DESTDIR are then collected into a tarball, which is
+    is stored at $BINIMGFILE.bz2
+
+    The default value for BINIMGFILE is
+
+	devpro-make-open-bins-{date}.{arch}.tar
+
+    Where "date" is in the format "YYYYMMDD", and "arch" is either
+    "i386" or "sparc".
+
+3. To build a "source code" release image:
+
+    Set up your environment variable, and then run "./build_src_img".
+
+    For example, in "sh", you could use this command:
+
+	cd usr/src; SRCIMGFILE=/your/path/to/source-code/imagefile \
+	    ./build_src_img
+
+    The entire source tree is collected into a tarball, which is
+    is stored at $SRCIMGFILE.bz2
+
+    The default value for SRCIMGFILE is:
+
+	SRCIMGFILE=../../imgdir/devpro-make-src-{date}.tar
+
+    Where "date" is in the format "YYYYMMDD".
+
