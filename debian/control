@@ -1,0 +1,46 @@
+Source: sunmake
+Priority: optional
+Section: devel
+Maintainer: Igor Pashev <pashev.igor@gmail.com>
+Build-Depends: debhelper (>= 9), g++, libtool, automake, autoconf, dh-autoreconf
+Standards-Version: 3.9.3
+
+Package: libmakestate1
+Priority: optional
+Section: libs
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: sunmake support library
+
+Package: sunmake
+Priority: optional
+Section: devel
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, sunmake-data
+Description: Sun/Solaris "make" utility (dmake predecessor)
+ This is a "make" program that can be used to build illumos sources.
+ .
+ It doesn't support more than one job (-j N), but it is free and open source.
+
+Package: sunmake-data
+Priority: optional
+Section: devel
+Architecture: all
+Description: Sun/Solaris "make" utility: shared files"
+ sunmake is a "make" program that can be used to build illumos sources.
+ .
+ This package provides shared data that can is used by sunmake and
+ required to build illumos gate no matter with sunmake of with dmake.
+
+Package: sunmake-dbg
+Priority: extra
+Section: debug
+Architecture: any
+Depends: sunmake (= ${binary:Version}), libmakestate1 (= ${binary:Version})
+Description: Sun/Solaris "make" utility: debug symbols
+ sunmake is a "make" program that can be used to build illumos sources.
+ .
+ This package contains the detached debugging symbols for sunmake.
+
