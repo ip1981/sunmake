@@ -213,9 +213,6 @@ extern void expand_value(Name, register String , Boolean);
 #endif
 
 jmp_buf jmpbuffer;
-#if !defined(linux)
-nl_catd catd;
-#endif
 
 /*
  *	main(argc, argv)
