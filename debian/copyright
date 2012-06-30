@@ -3,7 +3,7 @@ Upstream-Name: devpro-make
 Source: http://dlc.sun.com/osol/devpro/downloads/current/
 
 Files: debian/*
-Copyright: 2012 Igor Pashev <pashev.igor@gmail.com
+Copyright: 2012 Igor Pashev <pashev.igor@gmail.com>
 License: WTFPL-2
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
                     Version 2, December 2004 
