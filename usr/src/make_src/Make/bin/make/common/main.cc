@@ -1385,7 +1385,7 @@ read_command_options(register int argc, register char **argv)
 					catgets(catd, 1, 269, "              [ -e ][ -i ][ -k ][ -n ][ -p ][ -q ][ -r ][ -s ][ -t ][ -v ]\n"));
 #else
 				fprintf(stderr,
-					catgets(catd, 1, 270, "Usage : make [ -f makefile ]... [ -e ][ -i ][ -k ][ -n ][ -p ][ -q ][ -r ]\n"));
+					catgets(catd, 1, 270, "Usage : sunmake [ -f makefile ]... [ -e ][ -i ][ -k ][ -n ][ -p ][ -q ][ -r ]\n"));
 				fprintf(stderr,
 					catgets(catd, 1, 271, "             [ -s ][ -t ]\n"));
 #endif
@@ -1402,7 +1402,7 @@ read_command_options(register int argc, register char **argv)
 					catgets(catd, 1, 275, "              [ -q ][ -r ][ -s ][ -S ][ -t ][ -v ][ -V ][ target... ][ macro=value... ][ \"macro +=value\"... ]\n"));
 #else
 				fprintf(stderr,
-					catgets(catd, 1, 276, "Usage : make [ -f makefile ][ -K statefile ]... [ -d ][ -dd ][ -D ][ -DD ]\n"));
+					catgets(catd, 1, 276, "Usage : sunmake [ -f makefile ][ -K statefile ]... [ -d ][ -dd ][ -D ][ -DD ]\n"));
 				fprintf(stderr,
 					catgets(catd, 1, 277, "             [ -e ][ -i ][ -k ][ -n ][ -p ][ -P ][ -q ][ -r ][ -s ][ -S ][ -t ]\n"));
 				fprintf(stderr,
