@@ -28,7 +28,19 @@
 
 #pragma	ident	"@(#)bsd.cc	1.6	06/12/12"
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <signal.h>
+
+#ifndef HAVE_U_INT16_T
+/* bsd headers from Debian use u_intX_t, not uintX_t  */
+typedef uint8_t u_int8_t;
+typedef uint16_t u_int16_t;
+typedef uint32_t u_int32_t;
+typedef uint64_t u_int64_t;
+#endif
 
 #include <bsd/bsd.h>
 
