@@ -953,7 +953,6 @@ extern Boolean		do_not_exec_rule;		/* `-n' */
 extern Boolean		dollarget_seen;
 extern Boolean		dollarless_flag;
 extern Name		dollarless_value;
-extern char		**environ;
 extern Envvar		envvar;
 #if defined(SUN5_0) || defined(HP_UX) || defined(linux)
 extern int		exit_status;
@@ -991,6 +990,14 @@ extern Boolean		out_err_same;
 #endif
 extern pid_t		childPid;
 extern nl_catd		libmksh_catd;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern char		**environ;
+#ifdef __cplusplus
+}
+#endif
 
 /*
  * RFE 1257407: make does not use fine granularity time info available from stat.

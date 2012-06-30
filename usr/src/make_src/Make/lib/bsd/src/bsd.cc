@@ -42,35 +42,6 @@
 
 /* Static data.
  */
-
-extern SIG_PF
-bsd_signal (int Signal, SIG_PF Handler)
-{
-  auto SIG_PF                   previous_handler;
-#ifdef SUN5_0
-#ifdef sun
-  previous_handler = sigset (Signal, Handler);
-#else
-  auto struct sigaction         new_action;
-  auto struct sigaction         old_action;
-
-  new_action.sa_flags = SA_SIGINFO;
-  new_action.sa_handler = (void (*) ()) Handler;
-  (void) sigemptyset (&new_action.sa_mask);
-  (void) sigaddset (&new_action.sa_mask, Signal);
-
-  (void) sigaction (Signal, &new_action, &old_action);
-
-  previous_handler = (SIG_PF) old_action.sa_handler;
-#endif
-#elif defined(linux)
-  previous_handler = sigset (Signal, Handler);
-#else
-  previous_handler = signal (Signal, Handler);
-#endif
-  return previous_handler;
-}
-
 extern void
 bsd_signals (void)
 {

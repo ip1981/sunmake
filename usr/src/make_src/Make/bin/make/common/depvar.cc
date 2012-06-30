@@ -63,11 +63,7 @@ depvar_add_to_list(Name name, Boolean cmdline)
 {
 	Depvar		dv;
 
-#ifdef SUNOS4_AND_AFTER
 	dv = ALLOC(Depvar);
-#else
-	dv = (Depvar) Malloc(sizeof(struct _Depvar));
-#endif
 	dv->name = name;
 	dv->next = NULL;
 	dv->cmdline = cmdline;

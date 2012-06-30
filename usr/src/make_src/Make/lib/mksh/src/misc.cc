@@ -282,6 +282,11 @@ free_name(Name name)
  *		sigtvalue	The original signal handler
  *		sighvalue	The original signal handler
  */
+
+#ifndef SIG_PF
+typedef void (*SIG_PF)(int);
+#endif
+
 void
 enable_interrupt(register void (*handler) (int))
 {

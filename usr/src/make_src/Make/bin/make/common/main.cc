@@ -86,6 +86,7 @@
 #include <sys/errno.h>		/* ENOENT */
 #include <sys/stat.h>		/* fstat() */
 #include <fcntl.h>		/* open() */
+#include <libintl.h>		/* textdomain() */
 
 #ifdef SUN5_0
 #	include <sys/systeminfo.h>	/* sysinfo() */
