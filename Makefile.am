@@ -19,5 +19,6 @@ usr/src/make_src/Make/lib/bsd/src/bsd.cc
 libmksdmsi18n_la_LDFLAGS = -static
 libmksdmsi18n_la_CPPFLAGS = $(AM_CPPFLAGS) -DI18N_VERSION=1
 libmksdmsi18n_la_SOURCES = \
-usr/src/make_src/Make/lib/mksdmsi18n/src/libmksdmsi18n_init.cc
+usr/src/make_src/Make/lib/mksdmsi18n/src/libmksdmsi18n_init.cc \
+usr/src/make_src/include/avo/intl.h
 
