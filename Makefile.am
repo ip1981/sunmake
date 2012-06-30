@@ -33,6 +33,7 @@ usr/src/make_src/include/avo/intl.h
 
 libmksh_la_LDFLAGS = -static
 libmksh_la_SOURCES = \
+usr/src/make_src/Make/include/mksdmsi18n/mksdmsi18n.h \
 usr/src/make_src/Make/include/mksh/defs.h \
 usr/src/make_src/Make/include/mksh/dosys.h \
 usr/src/make_src/Make/include/mksh/globals.h \
@@ -48,10 +49,12 @@ usr/src/make_src/Make/lib/mksh/src/i18n.cc \
 usr/src/make_src/Make/lib/mksh/src/macro.cc \
 usr/src/make_src/Make/lib/mksh/src/misc.cc \
 usr/src/make_src/Make/lib/mksh/src/mksh.cc \
+usr/src/make_src/include/avo/avo_alloca.h \
 usr/src/make_src/Make/lib/mksh/src/read.cc
 
 libvroot_la_LDFLAGS = -static
 libvroot_la_SOURCES = \
+usr/src/make_src/Make/include/mk/defs.h \
 usr/src/make_src/Make/include/vroot/args.h \
 usr/src/make_src/Make/include/vroot/report.h \
 usr/src/make_src/Make/include/vroot/vroot.h \
@@ -102,4 +105,11 @@ usr/src/make_src/Make/bin/make/common/pmake.cc \
 usr/src/make_src/Make/bin/make/common/read.cc \
 usr/src/make_src/Make/bin/make/common/read2.cc \
 usr/src/make_src/Make/bin/make/common/rep.cc \
+usr/src/make_src/Make/include/bsd/bsd.h \
+usr/src/make_src/Make/include/mk/copyright.h \
 usr/src/make_src/Make/bin/make/common/state.cc
+
+EXTRA_DIST = \
+INSTALL \
+ReleaseNotes \
+usr/src/OPENSOLARIS.LICENSE
