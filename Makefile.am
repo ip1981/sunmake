@@ -112,4 +112,7 @@ usr/src/make_src/Make/bin/make/common/state.cc
 EXTRA_DIST = \
 INSTALL \
 ReleaseNotes \
-usr/src/OPENSOLARIS.LICENSE
+usr/src/OPENSOLARIS.LICENSE \
+usr/src/make_src/Make/bin/make/common/svr4.make.rules.file \
+usr/src/make_src/Make/bin/make/common/make.rules.file
+
