@@ -109,10 +109,23 @@ usr/src/make_src/Make/include/bsd/bsd.h \
 usr/src/make_src/Make/include/mk/copyright.h \
 usr/src/make_src/Make/bin/make/common/state.cc
 
+rules = \
+usr/src/make_src/Make/bin/make/common/svr4.make.rules \
+usr/src/make_src/Make/bin/make/common/make.rules
+
 EXTRA_DIST = \
 INSTALL \
 ReleaseNotes \
 usr/src/OPENSOLARIS.LICENSE \
-usr/src/make_src/Make/bin/make/common/svr4.make.rules.file \
-usr/src/make_src/Make/bin/make/common/make.rules.file
+$(rules)
+
+install-data-hook:
+	$(MKDIR_P) $(DESTDIR)$(datadir)/sunmake
+	for r in $(rules); do \
+		$(INSTALL_DATA) $$r $(DESTDIR)$(datadir)/sunmake ;\
+	done
+uninstall-hook:
+	for r in $(rules); do \
+		rm -f $(DESTDIR)$(datadir)/$$r ;\
+	done
 
