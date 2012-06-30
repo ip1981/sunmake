@@ -45,7 +45,6 @@ AC_TYPE_PID_T
 AC_TYPE_SIZE_T
 AC_TYPE_SSIZE_T
 AC_CHECK_DECLS([sys_siglist])
-AC_CHECK_TYPES([u_int16_t])
 
 # Checks for library functions.
 AC_FUNC_CHOWN

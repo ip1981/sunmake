@@ -60,8 +60,6 @@
 #endif
 #endif
 
-#include <bsd/bsd.h>		/* bsd_signal() */
-
 #ifdef DISTRIBUTED
 #	include <dm/Avo_AcknowledgeMsg.h>
 #	include <rw/xdrstrea.h>

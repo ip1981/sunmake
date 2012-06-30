@@ -44,7 +44,6 @@
 /*
  * Included files
  */
-#include <bsd/bsd.h>		/* bsd_signal() */
 #include <mksh/i18n.h>		/* get_char_semantics_value() */
 #include <mksh/misc.h>
 #include <mksdmsi18n/mksdmsi18n.h>
