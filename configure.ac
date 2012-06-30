@@ -7,7 +7,7 @@ AC_CONFIG_SRCDIR([usr/src/make_src/Make/bin/make/common/nse_printdep.cc])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([foreign])
+AM_INIT_AUTOMAKE([foreign subdir-objects])
 AM_SILENT_RULES([silent])
 
 # Checks for programs.
