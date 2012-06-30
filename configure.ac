@@ -18,6 +18,16 @@ AC_PROG_LN_S
 AC_PROG_MAKE_SET
 LT_INIT
 
+ARCH_CPPFLAGS=
+case $host in
+    *-pc-solaris*)
+        ARCH_CPPFLAGS="$ARCH_CFLAGS -DSUN5_0 -DSYSV -Dx86"
+        ;;
+    *)
+        ;;
+esac
+AC_SUBST(ARCH_CPPFLAGS)
+
 
 # Checks for libraries.
 
