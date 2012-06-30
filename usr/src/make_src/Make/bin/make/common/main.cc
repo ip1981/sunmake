@@ -95,6 +95,7 @@
 #include <sys/wait.h>		/* wait() */
 #include <unistd.h>		/* execv(), unlink(), access() */
 #include <vroot/report.h>	/* report_dependency(), get_report_file() */
+#include "bsd/bsd.h"
 
 // From read2.cc
 extern	Name		normalize_name(register wchar_t *name_string, register int length);
