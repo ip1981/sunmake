@@ -47,11 +47,6 @@
 #include <sys/uio.h>		/* read() */
 #include <unistd.h>		/* read(), unlink() */
 
-#if defined(HP_UX) || defined(linux)
-#include <avo/types.h>
-extern "C" Avo_err *avo_find_run_dir(char **dirp);
-#endif
-
 /*
  * typedefs & structs
  */
@@ -122,11 +117,6 @@ read_simple_file(register Name makefile_name, register Boolean chase_path, regis
 	register wchar_t        *string_end;
 
 
-#if defined(HP_UX) || defined(linux)
-	Avo_err                 *findrundir_err;
-	char                    *run_dir, makerules_dir[BUFSIZ];
-#endif
-
 	wchar_t * wcb = get_wstring(makefile_name->string_mb);
 
 #ifdef NSE
@@ -155,51 +145,15 @@ read_simple_file(register Name makefile_name, register Boolean chase_path, regis
 				add_dir_to_path(".",
 						&makefile_path,
 						-1);
-#ifdef SUN5_0
 				add_dir_to_path(NOCATGETS("/usr/share/lib/make"),
+						&makefile_path,
+						-1);
+				add_dir_to_path(NOCATGETS("/usr/share/sunmake"),
 						&makefile_path,
 						-1);
 				add_dir_to_path(NOCATGETS("/etc/default"),
 						&makefile_path,
 						-1);
-#elif defined(HP_UX)
-                		findrundir_err = avo_find_run_dir(&run_dir);
-                		if (! findrundir_err) {
-                        		(void) sprintf(makerules_dir, NOCATGETS("%s/../share/lib/make"), run_dir);
-					add_dir_to_path(makerules_dir,
-							&makefile_path,
-							-1);
-                		}
-
-				add_dir_to_path(NOCATGETS("/opt/SUNWspro/share/lib/make"),
-						&makefile_path,
-						-1);
-				add_dir_to_path(NOCATGETS("/usr/share/lib/make"),
-						&makefile_path,
-						-1);
-#elif defined(linux)
-                		findrundir_err = avo_find_run_dir(&run_dir);
-                		if (! findrundir_err) {
-                        		(void) sprintf(makerules_dir, NOCATGETS("%s/../lib"), run_dir);
-					add_dir_to_path(makerules_dir,
-							&makefile_path,
-							-1);
-                		}
-
-				add_dir_to_path(NOCATGETS("/usr/SUNWspro/lib"),
-						&makefile_path,
-						-1);
-				add_dir_to_path(NOCATGETS("/opt/SUNWspro/share/lib/make"),
-						&makefile_path,
-						-1);
-				add_dir_to_path(NOCATGETS("/usr/share/lib/make"),
-						&makefile_path,
-						-1);
-#else
-				add_dir_to_path(NOCATGETS("/usr/include/make"),
-						&makefile_path,
-						-1);
-#endif
 			}
 			save_makefile_type = makefile_type;
 			makefile_type = reading_nothing;
