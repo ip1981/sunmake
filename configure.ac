@@ -21,7 +21,7 @@ LT_INIT
 ARCH_CPPFLAGS=
 case $host in
     *-pc-solaris*)
-        ARCH_CPPFLAGS="$ARCH_CFLAGS -DSUN5_0 -DSYSV -Dx86"
+        ARCH_CPPFLAGS="$ARCH_CFLAGS -DSUN5_0 -DSYSV -Dx86 -DSUNOS4_AND_AFTER"
         ;;
     *)
         ;;

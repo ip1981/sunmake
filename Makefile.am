@@ -1,11 +1,16 @@
 AM_CPPFLAGS = -DTEXT_DOMAIN=\"SUNW_OST_OSLIB\"
 AM_CPPFLAGS += -DNDEBUG
 AM_CPPFLAGS += -I$(top_srcdir)/usr/src/make_src/include
+AM_CPPFLAGS += -I$(top_srcdir)/usr/src/make_src/Make/include
 
 AM_CPPFLAGS += $(ARCH_CPPFLAGS)
 
+bin_PROGRAMS = sunmake
+
 lib_LTLIBRARIES = \
-libmakestate.la \
+libmakestate.la
+
+noinst_LTLIBRARIES = \
 libbsd.la \
 libmksdmsi18n.la \
 libmksh.la \
@@ -27,7 +32,6 @@ usr/src/make_src/Make/lib/mksdmsi18n/src/libmksdmsi18n_init.cc \
 usr/src/make_src/include/avo/intl.h
 
 libmksh_la_LDFLAGS = -static
-libmksh_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(top_srcdir)/usr/src/make_src/Make/include
 libmksh_la_SOURCES = \
 usr/src/make_src/Make/include/mksh/defs.h \
 usr/src/make_src/Make/include/mksh/dosys.h \
@@ -47,7 +51,6 @@ usr/src/make_src/Make/lib/mksh/src/mksh.cc \
 usr/src/make_src/Make/lib/mksh/src/read.cc
 
 libvroot_la_LDFLAGS = -static
-libvroot_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(top_srcdir)/usr/src/make_src/Make/include
 libvroot_la_SOURCES = \
 usr/src/make_src/Make/include/vroot/args.h \
 usr/src/make_src/Make/include/vroot/report.h \
@@ -76,3 +79,27 @@ usr/src/make_src/Make/lib/vroot/src/unlink.cc \
 usr/src/make_src/Make/lib/vroot/src/unmount.cc \
 usr/src/make_src/Make/lib/vroot/src/utimes.cc \
 usr/src/make_src/Make/lib/vroot/src/vroot.cc
+
+sunmake_LDADD = libmksh.la libmksdmsi18n.la libbsd.la libvroot.la
+sunmake_SOURCES = \
+usr/src/make_src/Make/bin/make/common/ar.cc \
+usr/src/make_src/Make/bin/make/common/depvar.cc \
+usr/src/make_src/Make/bin/make/common/dist.cc \
+usr/src/make_src/Make/bin/make/common/dmake.cc \
+usr/src/make_src/Make/bin/make/common/doname.cc \
+usr/src/make_src/Make/bin/make/common/dosys.cc \
+usr/src/make_src/Make/bin/make/common/files.cc \
+usr/src/make_src/Make/bin/make/common/globals.cc \
+usr/src/make_src/Make/bin/make/common/implicit.cc \
+usr/src/make_src/Make/bin/make/common/macro.cc \
+usr/src/make_src/Make/bin/make/common/main.cc \
+usr/src/make_src/Make/bin/make/common/make.cc \
+usr/src/make_src/Make/bin/make/common/misc.cc \
+usr/src/make_src/Make/bin/make/common/nse.cc \
+usr/src/make_src/Make/bin/make/common/nse_printdep.cc \
+usr/src/make_src/Make/bin/make/common/parallel.cc \
+usr/src/make_src/Make/bin/make/common/pmake.cc \
+usr/src/make_src/Make/bin/make/common/read.cc \
+usr/src/make_src/Make/bin/make/common/read2.cc \
+usr/src/make_src/Make/bin/make/common/rep.cc \
+usr/src/make_src/Make/bin/make/common/state.cc
