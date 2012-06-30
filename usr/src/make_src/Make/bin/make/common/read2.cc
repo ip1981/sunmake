@@ -1605,7 +1605,7 @@ make_relative(wchar_t *to, wchar_t *result)
 	}
 
 	MBSTOWCS(wcs_buffer, get_current_path());
-	from = allocated = (wchar_t *) wsdup(wcs_buffer);
+	from = allocated = (wchar_t *) wcsdup(wcs_buffer);
 
 	/*
 	 * Find the number of components in the from name.

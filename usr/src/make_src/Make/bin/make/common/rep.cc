@@ -141,16 +141,16 @@ report_recursive_init(void)
 			/*
 			 * set conditional_macro_string if string is present
 			 */
-			rp->oldline = (wchar_t *) wsdup(line);
+			rp->oldline = (wchar_t *) wcsdup(line);
 			if ( dollar != NULL ){
 				rp->cond_macrostring = 
-				    (wchar_t *) wsdup(dollar - VER_LEN + 1);
+				    (wchar_t *) wcsdup(dollar - VER_LEN + 1);
 			}
 			/* 
 			 * get target name into recursive struct
 			 */
 			*colon = (int) nul_char;
-			rp->target = (wchar_t *) wsdup(line);
+			rp->target = (wchar_t *) wcsdup(line);
 			*bpatch = rp;
 			bpatch = &rp->next;
 		}
@@ -188,14 +188,14 @@ report_recursive_dep(Name target, wchar_t *line)
 		(void) memset((char *) rp, 0, sizeof (Recursive_make_rec));
 		wchar_t * wcb = get_wstring(target->string_mb); // XXX Tolik: needs retmem
                 rp->target = wcb;
-		rp->newline = (wchar_t *) wsdup(line);
-		rp->cond_macrostring = (wchar_t *) wsdup(rec_buf);
+		rp->newline = (wchar_t *) wcsdup(line);
+		rp->cond_macrostring = (wchar_t *) wcsdup(rec_buf);
 		*bpatch = rp;
 		bpatch = &rp->next;
 		changed = true;
 	} else {
 		if ((rp->oldline != NULL) && !IS_WEQUAL(rp->oldline, line)) {
-			rp->newline = (wchar_t *) wsdup(line);
+			rp->newline = (wchar_t *) wcsdup(line);
 			changed = true;
 		}
 		rp->removed = false;

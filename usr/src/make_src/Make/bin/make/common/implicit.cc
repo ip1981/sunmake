@@ -96,7 +96,6 @@ extern	void		add_target_to_chain(Name target, Chain * query);
  *		recursion_level	Used for tracing
  */
 
-extern int printf (const char *, ...);
 
 static Boolean actual_doname = false;
 

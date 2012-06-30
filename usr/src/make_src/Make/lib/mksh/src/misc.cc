@@ -371,37 +371,11 @@ setup_char_semantics(void)
  *	Parameters:
  *		errnum		The number of the error we want to describe
  *
- *	Global variables used:
- *		sys_errlist	A vector of error messages
- *		sys_nerr	The size of sys_errlist
  */
 char *
 errmsg(int errnum)
 {
-#ifdef linux
 	return strerror(errnum);
-#else // linux
-
-	extern int		sys_nerr;
-#ifdef SUN4_x
-	extern char		*sys_errlist[];
-#endif
-	char			*errbuf;
-
-	if ((errnum < 0) || (errnum > sys_nerr)) {
-		errbuf = getmem(6+1+11+1);
-		(void) sprintf(errbuf, catgets(libmksdmsi18n_catd, 1, 127, "Error %d"), errnum);
-		return errbuf;
-	} else {
-#ifdef SUN4_x
-		return(sys_errlist[errnum]);
-#endif
-#ifdef SUN5_0
-		return strerror(errnum);
-#endif
-
-	}
-#endif // linux
 }
 
 static char static_buf[MAXPATHLEN*3];

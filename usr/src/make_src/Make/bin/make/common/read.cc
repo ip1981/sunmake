@@ -395,7 +395,7 @@ read_simple_file(register Name makefile_name, register Boolean chase_path, regis
 		  stdin_text_p = getmem(length = 1024);
 		stdin_buffer_end = stdin_text_p + length;
 		MBSTOWCS(wcs_buffer, NOCATGETS("standard input"));
-		file_being_read = (wchar_t *) wsdup(wcs_buffer);
+		file_being_read = (wchar_t *) wcsdup(wcs_buffer);
 		line_number = 0;
 		while ((n = read(fileno(stdin),
 				 stdin_text_p,

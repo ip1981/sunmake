@@ -49,7 +49,6 @@ static void	print_rule(register Name target);
 static	void	print_rec_info(Name target);
 static Boolean	is_out_of_date(Property line);
 extern void depvar_print_results (void);
-extern int printf (const char *, ...);
 extern int _flsbuf (unsigned int, FILE *);
 
 /*
