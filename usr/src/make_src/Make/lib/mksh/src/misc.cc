@@ -49,7 +49,7 @@
 #include <mksdmsi18n/mksdmsi18n.h>
 #include <stdarg.h>		/* va_list, va_start(), va_end() */
 #include <stdlib.h>		/* mbstowcs() */
-#include <sys/signal.h>		/* SIG_DFL */
+#include <signal.h>
 #include <sys/wait.h>		/* wait() */
 
 #ifdef SUN5_0
