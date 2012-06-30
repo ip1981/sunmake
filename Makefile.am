@@ -1,6 +1,6 @@
 AM_CPPFLAGS = -DTEXT_DOMAIN=\"SUNW_OST_OSLIB\"
 AM_CPPFLAGS += -DNDEBUG
-AM_CPPFLAGS += -Iusr/src/make_src/include
+AM_CPPFLAGS += -I$(top_srcdir)/usr/src/make_src/include
 
 lib_LTLIBRARIES = \
 libmakestate.la \
