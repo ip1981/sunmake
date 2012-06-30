@@ -161,7 +161,7 @@ expand_value(Name value, register String destination, Boolean cmd)
 	value->being_expanded = true;
 	/* Setup the structure we read from */
 	Wstring vals(value);
-	sourceb.string.text.p = sourceb.string.buffer.start = wsdup(vals.get_string());
+	sourceb.string.text.p = sourceb.string.buffer.start = wcsdup(vals.get_string());
 	sourceb.string.free_after_use = true;
 	sourceb.string.text.end =
 	  sourceb.string.buffer.end =
@@ -585,7 +585,7 @@ get_macro_value:
 					eq = percent + 1;
 					if (eq[0] == (int) nul_char) {
 						MBSTOWCS(wcs_buffer, "");
-						right_hand[i] = (wchar_t *) wsdup(wcs_buffer);
+						right_hand[i] = (wchar_t *) wcsdup(wcs_buffer);
 						i++;
 						break;
 					}
@@ -1381,13 +1381,6 @@ found_it:;
 			new_value = ALLOC_WC(length);
 			new_value_allocated = true;
 			WCSTOMBS(mbs_buffer, old_vr);
-#if !defined(linux)
-			(void) wsprintf(new_value,
-				        NOCATGETS("/usr/arch/%s/%s:%s"),
-				        ha->string_mb + 1,
-				        ta->string_mb + 1,
-				        mbs_buffer);
-#else
 			char * mbs_new_value = (char *)getmem(length);
 			(void) sprintf(mbs_new_value,
 				        NOCATGETS("/usr/arch/%s/%s:%s"),
@@ -1396,7 +1389,6 @@ found_it:;
 				        mbs_buffer);
 			MBSTOWCS(new_value, mbs_new_value);
 			retmem_mb(mbs_new_value);
-#endif
 		}
 		if (new_value[0] != 0) {
 			(void) setvar_daemon(virtual_root,
