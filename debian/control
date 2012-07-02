@@ -28,7 +28,7 @@ Package: sunmake-data
 Priority: optional
 Section: devel
 Architecture: all
-Description: Sun/Solaris "make" utility: shared files"
+Description: Sun/Solaris "make" utility: shared files
  sunmake is a "make" program that can be used to build illumos sources.
  .
  This package provides shared data that can is used by sunmake and
