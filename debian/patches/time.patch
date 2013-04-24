@@ -1,0 +1,14 @@
+Index: sunmake/usr/src/make_src/Make/bin/make/common/misc.cc
+===================================================================
+--- sunmake.orig/usr/src/make_src/Make/bin/make/common/misc.cc	2013-04-25 01:50:59.014070683 +0400
++++ sunmake/usr/src/make_src/Make/bin/make/common/misc.cc	2013-04-25 02:01:51.552034954 +0400
+@@ -63,9 +63,7 @@
+ #endif /* MAXJOBS_ADJUST_RFE4694000 */
+ #endif /* TEAMWARE_MAKE_CMN */
+ 
+-#if defined(linux)
+ #include <time.h>		/* localtime() */
+-#endif
+ 
+ /*
+  * Defined macros

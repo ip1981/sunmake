@@ -7,6 +7,7 @@ sunmake (2006.12.19-1) unstable; urgency=low
   * Use 3.0 (quilt) format, not native
   * Use pritine-tar and normal git repo for packaging
   * Remove build dependency on autotools
+  * Patch to include time.h for localtime() not only on linux
 
  -- Igor Pashev <pashev.igor@gmail.com>  Thu, 25 Apr 2013 01:44:13 +0400
 
