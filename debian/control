@@ -13,12 +13,15 @@ Pre-Depends: ${misc:Pre-Depends}
 Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: sunmake support library
+ libmakestate.so.1 is used by sunld to report .make.state info back to
+ sunmake.  sunmake defines environment variable which instruct sunld to
+ dlopen() libmakestate.so.1
 
 Package: sunmake
 Priority: optional
 Section: devel
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, sunmake-data
+Depends: ${shlibs:Depends}, ${misc:Depends}, sunmake-data, libmakestate1
 Description: Sun/Solaris "make" utility (dmake predecessor)
  This is a "make" program that can be used to build illumos sources.
  .
