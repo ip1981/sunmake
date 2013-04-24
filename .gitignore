@@ -7,14 +7,10 @@
 *.log
 stamp-h1
 .libs
-Makefile.in
-aclocal.m4
 autom4te.cache
-build-aux
-config.h.in
-config.status
 configure
 libtool
-m4
 Makefile
 config.h
+config.status
+sunmake-*.tar.*
